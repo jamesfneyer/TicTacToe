@@ -20,15 +20,19 @@ public class PlayGame {
 			while(!gameOver){
 			for(int i = 0; i< board.length;i++){				
 				System.out.print(board[i]);
-				if((i+1)%3 == 0) System.out.println("\n");
+				if((i+1)%3 == 0 && (i !=8)) {
+					System.out.print("\n");
+					System.out.println("-----------");
+				}
+				else if(i ==8)System.out.println("\n");
+				else System.out.print("|");
 			}
 			move = Validator.getPlay(sc, "Enter valid move: ", GameBoard.getSpacestoPlay());
 			GameBoard.setPlayerMoves(move);
 			playerMoves.add(move);
-			ComputerPlayer.makeAMove();
+			if(GameBoard.getSpacestoPlay().size() < 9) ComputerPlayer.makeAMove();
 			
 			if(GameBoard.getComputerMoves().size()>=3){
-				System.out.println(GameBoard.getSpacestoPlay().size());
 				for(int i=0;i<3;i++){
 					if(GameBoard.getComputerMoves().contains(i)&&GameBoard.getComputerMoves().contains(i+3)&&GameBoard.getComputerMoves().contains(i+6)) {
 						gameOver = true;
@@ -66,7 +70,7 @@ public class PlayGame {
 					gameOver = true;
 					gameOutcome = "You win!";
 				}
-				if(GameBoard.getSpacestoPlay().size()==10){
+				if(GameBoard.getSpacestoPlay().size()==9){
 					gameOver= true;
 					gameOutcome = "You tie!";
 				}

@@ -25,12 +25,12 @@ public class GameBoard {
 	public static void setComputerMoves(int i){
 		computerMoves.add(i);
 		setSpacestoPlay(i);
-		setPlayedSpace(i,"x");
+		setPlayedSpace(i,"X");
 	}
 	public static void setPlayerMoves(int i){
 		playerMoves.add(i);
 		setSpacestoPlay(i);
-		setPlayedSpace(i,"o");
+		setPlayedSpace(i,"O");
 	}
 	
 	public static ArrayList<Integer> getSpacestoPlay() {
@@ -41,38 +41,18 @@ public class GameBoard {
 	}
 
 	public static void setPlayedSpace(int i, String p) {
-		switch(i){
-		case 0:
-		case 3:
-			board[i]="_"+p+"_";
-			break;
-		case 1:
-		case 2:
-		case 4:
-		case 5:
-			board[i]="|_"+p+"_";
-			break;
-		case 6:
 			board[i]=" "+p+" ";
-			break;
-		case 7:
-		case 8:
-			board[i]="| "+p+" ";
-			break;
-		default:
-			break;
-		}
 	}
 	public static void generateBoard(){
-	board[0] = "_0_";
-	board[1] = "|_1_";
-	board[2] = "|_2_";
-	board[3] = "_3_";
-	board[4] = "|_4_";
-	board[5] = "|_5_";
+	board[0] = " 0 ";
+	board[1] = " 1 ";
+	board[2] = " 2 ";
+	board[3] = " 3 ";
+	board[4] = " 4 ";
+	board[5] = " 5 ";
 	board[6] = " 6 ";
-	board[7] = "| 7 ";
-	board[8] = "| 8 ";
+	board[7] = " 7 ";
+	board[8] = " 8 ";
 	spacestoPlay.clear();
 	computerMoves.clear();
 	playerMoves.clear();
